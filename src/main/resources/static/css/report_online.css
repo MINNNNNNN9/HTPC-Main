@@ -1,0 +1,150 @@
+@page {
+    margin: 0;
+    width: 210mm;
+    height: 297mm;
+}
+
+table {
+    page-break-inside: avoid;
+    border-collapse: collapse;
+}
+
+@media print {
+    html, body {
+        -webkit-print-color-adjust: exact;
+        width: 210mm;
+        height: 297mm;
+        margin: 0;
+    }
+
+    .page {
+        width: 210mm;
+        height: 297mm;
+        margin: 0;
+    }
+
+    .newpage {
+        width: 210mm;
+        height: 297mm;
+        margin: 0;
+        page-break-before: always;
+    }
+}
+
+body {
+    font-family: Microsoft JhengHei;
+    font-size: 10pt;
+    margin: 0;
+    padding: 0;
+}
+
+.titleLeft {
+    text-align: center;
+    font-size: 1.8em;
+}
+
+.imgtitle {
+    display: block;
+    margin: auto;
+    width: 30%;
+}
+
+table.one {
+    width: 90%;
+    border-spacing: 15px;
+    margin: 0 auto;
+    border: 1px solid #000;
+}
+
+td.col_one, td.col_two, td.col_three, td.col_four, td.col_five, td.col_six, td.col_even_border {
+    width: 10%;
+    text-align: left;
+    height: 30px;
+    border: 1px solid #000;
+    padding: 2px;
+}
+
+table.two {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    border: 1px solid #666666;
+}
+
+td.co2_st, td.co2_nd, td.co2_rd, td.co2_th {
+    border: 1px solid #666666;
+    padding: 5px;
+    text-align: center;
+}
+
+table.three {
+    width: 90%;
+    height: 20%;
+    border-spacing: 15px;
+    color: #333333;
+    margin: 0 auto;
+    border-width: 1px;
+    border-color: #666666;
+    border-collapse: collapse;
+}
+
+table.three th {
+    font-size: 12pt;
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #666666;
+    background-color: #CCEEFF;
+    height: 20px;
+}
+
+table.three td {
+    font-size: 10pt;
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #666666;
+}
+
+#spider_chart {
+    margin: 15px auto;
+    width: 100%;
+    height: 500px;
+}
+
+.new-page {
+    page-break-before: always;
+}
+
+.page {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    page-break-after: always;
+}
+
+
+.newpage {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    page-break-before: always;
+}
+table.four {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border-collapse: collapse;
+}
+
+.newpage img {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+td {
+    border: 1px solid #000;
+    padding: 2px;
+}
