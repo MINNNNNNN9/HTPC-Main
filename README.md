@@ -1,6 +1,6 @@
 # HTPC Project
 
-這是一個用於生成 HRV 報告的 Java 專案，使用 OpenHTMLToPDF 將 HTML 轉換為 PDF 格式。
+這是一個用於生成 HRV 報告的 Java 專案，使用 OpenHTMLToPDF 將 HTML 轉換為 PDF 格式，並提供圖形化使用者介面。
 
 ## 專案結構說明
 
@@ -21,6 +21,8 @@
 │       │   ├── data
 │       │   │   ├── DataInitializer.java    # 數據初始化，設置初始參數
 │       │   │   └── DataProcessor.java      # 數據處理，處理 HRV 相關數據
+│       │   ├── gui
+│       │   │   └── HRVGui.java            # 圖形化使用者介面
 │       │   ├── html
 │       │   │   ├── HtmlProcessor.java      # HTML 處理器，處理本地 HTML
 │       │   │   └── OnlineHtmlConverter.java # 在線 HTML 轉換器，處理在線報告
@@ -57,18 +59,26 @@
    - `DataInitializer.java`: 初始化數據和參數設置
    - `DataProcessor.java`: 處理和轉換 HRV 相關數據
 
-3. **HTML 處理模組 (html)**
+3. **GUI 模組 (gui)**
+   - `HRVGui.java`: 提供圖形化使用者介面，包含：
+     - 用戶參數輸入區
+     - 設備狀態監控
+     - HRV 參數即時顯示
+     - 心電圖波形顯示
+     - 進度條顯示
+
+4. **HTML 處理模組 (html)**
    - `HtmlProcessor.java`: 處理本地 HTML 模板
    - `OnlineHtmlConverter.java`: 處理在線 HTML 轉換
 
-4. **圖片處理模組 (image)**
+5. **圖片處理模組 (image)**
    - `HRVPlot.java`: 生成 HRV 相關圖表
    - `ImageHandler.java`: 處理圖片下載和轉換
 
-5. **PDF 轉換模組 (pdf)**
+6. **PDF 轉換模組 (pdf)**
    - `PdfConverter.java`: 將處理後的 HTML 轉換為 PDF
 
-6. **工具模組 (utils)**
+7. **工具模組 (utils)**
    - `FileUtils.java`: 提供通用文件操作功能
 
 ## 資源文件說明
@@ -94,10 +104,11 @@
 
 ## 使用技術
 
-- **Java**：主要開發語言。
-- **OpenHTMLToPDF**：用於將 HTML 轉換為 PDF。
-- **Jsoup**：用於解析和處理 HTML。
-- **JTidy**：用於清理和格式化 HTML。
+- **Java**：主要開發語言
+- **Swing**：用於構建圖形化使用者介面
+- **OpenHTMLToPDF**：用於將 HTML 轉換為 PDF
+- **Jsoup**：用於解析和處理 HTML
+- **JTidy**：用於清理和格式化 HTML
 
 ## 安裝與使用
 
@@ -114,10 +125,14 @@
    ```
 
 3. **運行專案**：
-   執行主類 `HTPC.java` 來生成報告：
-   ```bash
-   java -cp target/classes com.wulab.htpc.HTPC
-   ```
+   - 命令行模式：
+     ```bash
+     java -cp target/classes com.wulab.htpc.HTPC
+     ```
+   - GUI 模式：
+     ```bash
+     java -cp target/classes com.wulab.htpc.gui.HRVGui
+     ```
 
 ## 資料夾說明
 
@@ -126,4 +141,29 @@
 - `src/main/java`：Java 源碼。
 - `src/main/resources`：資源文件，包括字體、CSS 和圖片。
 
+## GUI 待實作說明
+
+1. **用戶參數區**
+   - UserID、姓名、性別等基本信息輸入
+   - 自動更新的測量時間顯示
+   - 身高、體重等生理參數輸入
+   - 備註信息輸入
+
+2. **設備狀態區**
+   - 即時顯示設備連接狀態
+   - 配置和停止按鈕
+   - 狀態指示燈顯示
+
+3. **HRV 參數區**
+   - 進度條顯示測量進度
+   - 即時顯示 HR、SD、TP 等參數
+   - 二維碼顯示
+
+4. **心電圖顯示區**
+   - 即時波形顯示
+   - 刻度標示
+   - 網格背景
+
 ## 貢獻
+
+

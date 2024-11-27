@@ -18,12 +18,35 @@ import com.wulab.htpc.image.ImageHandler;
 import com.wulab.htpc.pdf.PdfConverter;
 
 public class HTPC {
-    private static final String ONLINE_API_URL = "https://example.com/api/generate-report"; // 替換為實際的API地址
+    private static final String ONLINE_API_URL = "https://example.com/api/generate-report";
     private static final String ONLINE_HTML_URL = "https://service.kylab906.com/getreportbyid?DataID=789BB267AB20240924152142";
     
     public static void main(String[] args) throws Exception {
-        // 測試線上 HTML 轉換
-        testOnlineHtmlConversion();
+        // 顯示選單
+        System.out.println("請選擇執行模式：");
+        System.out.println("1. 本地測試");
+        System.out.println("2. 線上測試");
+        
+        // 讀取用戶輸入
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+        String choice = scanner.nextLine();
+        
+        // 根據選擇執行對應功能
+        switch (choice) {
+            case "1":
+                System.out.println("執行本地測試...");
+                testLocalHtmlConversion();
+                break;
+            case "2":
+                System.out.println("執行線上測試...");
+                testOnlineHtmlConversion();
+                break;
+            default:
+                System.out.println("無效的選擇！請輸入 1 或 2");
+                break;
+        }
+        
+        scanner.close();
     }
 
     private static void testOnlineHtmlConversion() {
@@ -110,6 +133,26 @@ public class HTPC {
         } catch (Exception e) {
             System.err.println("處理本地 HTML 時發生錯誤: " + e.getMessage());
             throw e;
+        }
+    }
+
+    private static void testLocalHtmlConversion() {
+        try {
+            System.out.println("開始本地 HTML 轉換為 PDF...");
+            
+            // 初始化測試數據
+            Map<String, String> dataMap = DataInitializer.initializeDataMap();
+            
+            // 確保輸出目錄存在
+            FileUtils.createDirectoryIfNotExists("./output");
+            
+            // 處理本地 HTML
+            processLocalHtml(dataMap);
+            
+            System.out.println("本地 HTML 轉換 PDF 成功！輸出路徑: " + PathConfig.PDF_OUTPUT_PATH);
+        } catch (Exception e) {
+            System.err.println("本地 HTML 轉換失敗: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }
