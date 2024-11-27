@@ -45,11 +45,7 @@
 │           │       └── taichi_plot.png     # 太極圖範本
 │           └── templates
 │               └── report_tw.html          # 報告 HTML 範本
-└── target                        # Maven 構建輸出目錄
-    ├── classes                   # 編譯後的類文件
-    ├── generated-sources         # 生成的源代碼
-    ├── maven-status              # Maven 構建狀態
-    └── test-classes             # 測試類編譯輸出
+
 ```
 
 ## 主要功能模組說明
