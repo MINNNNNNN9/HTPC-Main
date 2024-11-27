@@ -52,6 +52,7 @@
 ├── generated-sources
 ├── maven-status
 └── test-classes
+.
 
 ## 主要功能
 
